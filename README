@@ -12,7 +12,7 @@ Feature plans:
 *) Later it might be interesting to provide customized versions
    of the application where the data of the specific event is already loaded.
 *) Show the general schedule.
-*) Allow loging and show the private schedule.
+*) Allow login and show the private schedule.
 *) Allow the marking and unmarking talks.
 *)     swipe to side - talk in the same time
 *)     swpe down/up  - previous, next talks

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
     xmlns:gap = "http://phonegap.com/ns/1.0"
-    id        = "com.szabgab.mobile1"
+    id        = "com.szabgab.act"
     versionCode="1"
     version   = "0.0.1">
-  <name>Mobile Test 1</name>
+  <name>Act Mobile</name>
   <description>
-    Testing mobile applications
+    Mobile applications for Act
   </description>
 
   <author href="http://szabgab.com" email="szabgab@gmail.com">
