@@ -1,0 +1,20 @@
+This is a mobile application to be used by conferenes using Act - A Conference Toolkit
+http://act.mongueurs.net/
+
+
+Feature plans:
+
+*) Show the general schedule.
+*) Allow loging and show the private schedule.
+*) Allow the marking and unmarking talks.
+*)     swipe to side - talk in the same time
+*)     swpe down/up  - previous, next talks
+*) Show the pictures of all the participants,
+   and all the details allow searching among them.
+*) Allow sending messages between participants?
+*) Show the sponsors.
+*) Allow the organizers to push news to the application
+*) Show the event map
+
+*) Allow most of the features to work off-line, using the internal clock, GPS
+
