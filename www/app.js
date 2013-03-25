@@ -64,14 +64,60 @@ function list_events() {
         $('#event-set').click(function() {
             selected_event = $('#event-selector').val();
             localStorage.setItem('selected_event', selected_event);
+            show_opening();
             return false;
         });
     })
 }
 
+function fetch_schedule() {
+    if (! selected_event) {
+        $('#error-no-selected-event').show();
+        return false;
+    }
+
+    $('#error-no-selected-event').hide();
+    $('#error-no-schedule').hide();
+    var url = events[selected_event]["url"] + "timetable.ics";
+    console.log(url);
+    jQuery.get(url, '', schedule_arrived);
+    return false;
+}
+
+function schedule_arrived(input, textStatus, jqXHR) {
+    console.log('schedule arrived');
+    var raw_data = localStorage.getItem( selected_event );
+    var data;
+    if (raw_data) {
+        data = JSON.parse( raw_data );
+    } else {
+        data = new Array;
+    }
+    data["timetable"] = input;
+    console.log(input);
+    localStorage.setItem( selected_event, JSON.stringify(data));
+    show_schedule();
+}
+
+
 function hide_all() {
     $('#page-event-selector').hide();
     $('#page-opening').hide();
+    $('#page-schedule').hide();
+
+    $('#error-no-selected-event').hide();
+    $('#error-no-schedule').hide();
+}
+function show_schedule() {
+    $('#error-no-schedule').hide();
+    var data = localStorage.getItem( selected_event );
+    if (! data || !  data["timetable"] ){
+        $('#error-no-schedule').show();
+        return false;
+    }
+    hide_all();
+    $('#page-schedule').show();
+    $('#page-schedule').html('');
 }
 function show_event_selector() {
     hide_all();
@@ -85,6 +131,15 @@ function show_opening() {
     $('#title').html( events[selected_event]["name"] );
     $('#show-selector').click(function() {
         show_event_selector();
+        return false;
+    });
+    $('#fetch-schedule').click(function() {
+        fetch_schedule();
+        return false;
+    });
+    $('#show-schedule').click(function() {
+        show_schedule();
+        return false;
     });
 }
 
@@ -95,5 +150,4 @@ $(document).ready(function() {
         show_event_selector();
     }
 });
-
 
