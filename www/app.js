@@ -1,11 +1,13 @@
 // add coordinates, to be able to show a map
+
+var selected_event = localStorage.getItem('selected_event');
 events = {
     "ilpw2013" : {
         "url"        : "http://act.perl.org.il/ilpw2013/",
         "name"       : "Perl Workshop in Israel, 2013",
         "date-start" : "2013-02-25",
         "date-end"   : "2013-02-25",
-        "location"   : "Rmat Gan, Israel"
+        "location"   : "Ramat Gan, Israel"
     },
     "nlpw2013" : {
         "url"        : "http://www.perlworkshop.nl/nlpw2013/",
@@ -38,17 +40,60 @@ events = {
 };
 
 function list_events() {
-    var html = "<select>\n";
+    var html = '<select id="event-selector">\n';
     html += '<option id=""></option>\n';
     for (var id in events) {
-        html += '<option id="' + id + '">' + events[id]["name"] + '</option>\n';
+        html += '<option value="' + id + '">' + events[id]["name"] + '</option>\n';
     }
     html += "</select>\n";
-    console.log(html);
+    //console.log(html);
     $('#event-list').html(html);
+    $('#event-selector').focus();
+    $('#event-selector').change(function() {
+        //console.log('changed');
+        //console.log( $('#event-selector').val() );
+        var event_id = $('#event-selector').val();
+        var html = '';
+        if (event_id) {
+            html += 'Location: ' + events[event_id]["location"] + '<br>\n';
+            html += 'Start: '    + events[event_id]["date-start"] + '<br>\n';
+            html += 'End: '      + events[event_id]["date-end"] + '<br>\n';
+        }
+        html += '<input type="button" id="event-set" value="Set" />';
+        $('#event-details').html(html);
+        $('#event-set').click(function() {
+            selected_event = $('#event-selector').val();
+            localStorage.setItem('selected_event', selected_event);
+            return false;
+        });
+    })
+}
+
+function hide_all() {
+    $('#page-event-selector').hide();
+    $('#page-opening').hide();
+}
+function show_event_selector() {
+    hide_all();
+    $('#page-event-selector').show();
+    list_events();
+}
+function show_opening() {
+    hide_all();
+    $('#page-opening').show();
+    $('title').html( events[selected_event]["name"] );
+    $('#title').html( events[selected_event]["name"] );
+    $('#show-selector').click(function() {
+        show_event_selector();
+    });
 }
 
 $(document).ready(function() {
-    //$('title').html(title);
-    list_events();
+    if (selected_event && events[selected_event]) {
+        show_opening();
+    } else {
+        show_event_selector();
+    }
 });
+
+

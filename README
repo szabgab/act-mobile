@@ -4,6 +4,13 @@ http://act.mongueurs.net/
 
 Feature plans:
 
+*) When the user first starts the application show the
+   list of available events, and let the user selec the
+   one she attends.
+
+
+*) Later it might be interesting to provide customized versions
+   of the application where the data of the specific event is already loaded.
 *) Show the general schedule.
 *) Allow loging and show the private schedule.
 *) Allow the marking and unmarking talks.
