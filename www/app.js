@@ -40,13 +40,7 @@ events = {
 };
 
 
-function hide_all() {
-    //$('#page-event-selector').hide();
-    //$('#page-opening').hide();
-}
 function show_event_selector() {
-//    hide_all();
-//    $('#page-event-selector').show();
   //console.log('list_events');
   for (var id in events) {
     //console.log(id);
@@ -65,19 +59,23 @@ function show_event_selector() {
             html += 'Start: '    + events[event_id]["date-start"] + '<br>\n';
             html += 'End: '      + events[event_id]["date-end"] + '<br>\n';
         }
-        html += '<input type="button" id="event-set" value="Set" />';
         $('#event-details').html(html);
-        $('#event-set').click(function() {
-            selected_event = $('#event-selector').val();
-            localStorage.setItem('selected_event', selected_event);
-            return false;
-        });
     })
 
     return false;
 }
+$('#goto-event').click(function() {
+  selected_event = $('#event-selector').val();
+  if (selected_event and events[selected_event]) {
+    localStorage.setItem('selected_event', selected_event);
+    // goto event-page
+  } else {
+    alert('invalid selection')
+  }
+  return false;
+});
+
 function show_opening() {
-    hide_all();
     $('#page-opening').show();
     $('title').html( events[selected_event]["name"] );
     $('#title').html( events[selected_event]["name"] );

@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <!-- version 0.0.1 -->
  <title>Act - mobile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0, user-scalable=yes" />
   <meta charset="utf-8" />
 
   <link rel="stylesheet" href="jquery/jquery.mobile-1.3.1.min.css" />
+  <link rel="stylesheet" href="app.css" />
 
   <script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
   <script type="text/javascript" src="jquery/jquery.mobile-1.3.1.min.js"></script>
   <script type="text/javascript" src="app.js"></script>
-  <link rel="stylesheet" href="app.css" />
 </head>
 <body>
 
@@ -21,14 +20,25 @@
   </div>
   <div data-role="content">
     A Conferene Toolkit<br>
-<!--    Please <a href="#select-event-page" data-rel="dialog">select the event</a> you are attending.-->
-   <label for="event-selector" class="select">Pleae, select the event:</label>
+   <label for="event-selector" class="select">Please, select the event:</label>
    <select name="event-selector" id="event-selector">
      <option value=""></option>
    </select>
    
     <div id="event-details"></div>
+    <input type="button" id="goto-event" value="Go" />
 
+  </div>
+  <div data-role="footer" data-position="fixed" >
+    <a href="#about-page" data-role="button" data-icon="about">about</a>
+  </div>
+</div>
+
+<div data-role="page" id="event-page">
+  <div data-role="header">
+    <h1>Event</h1>
+  </div>
+  <div data-role="content">
   </div>
   <div data-role="footer" data-position="fixed" >
     <a href="#about-page" data-role="button" data-icon="about">about</a>
@@ -44,6 +54,7 @@
     <p>The Act Mobile application was written by Gabor Szabo as a front and for
      Act, A conference toolkit used by most of the Perl events.
     </p>
+    <p>Version 0.0.1</p>
   </div>
 </div>
 
