@@ -5,9 +5,18 @@ http://act.mongueurs.net/
 Feature plans:
 
 *) When the user first starts the application show the
-   list of available events, and let the user selec the
+   list of available events, and let the user select the
    one she attends.
+*) Save the selection in local storage and display the name of the current
+   event.
+*) When the application is opened after the event was selected
+   immediately show that name.
 
+
+
+
+*) Allow the user to type in his username/password and ask the
+   user if he wants to save them on the device.
 
 *) Later it might be interesting to provide customized versions
    of the application where the data of the specific event is already loaded.

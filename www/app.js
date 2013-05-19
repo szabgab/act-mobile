@@ -39,16 +39,22 @@ events = {
     }
 };
 
-function list_events() {
-    var html = '<select id="event-selector">\n';
-    html += '<option id=""></option>\n';
-    for (var id in events) {
-        html += '<option value="' + id + '">' + events[id]["name"] + '</option>\n';
-    }
-    html += "</select>\n";
-    //console.log(html);
-    $('#event-list').html(html);
-    $('#event-selector').focus();
+
+function hide_all() {
+    //$('#page-event-selector').hide();
+    //$('#page-opening').hide();
+}
+function show_event_selector() {
+//    hide_all();
+//    $('#page-event-selector').show();
+  //console.log('list_events');
+  for (var id in events) {
+    //console.log(id);
+    $("#event-selector").append('<option value="' + id + '">' + events[id]["name"] + '</option>\n');
+  }
+  $("#event-selector").trigger('create');
+  //console.log(html);
+//    $('#event-selector').focus();
     $('#event-selector').change(function() {
         //console.log('changed');
         //console.log( $('#event-selector').val() );
@@ -67,16 +73,8 @@ function list_events() {
             return false;
         });
     })
-}
 
-function hide_all() {
-    $('#page-event-selector').hide();
-    $('#page-opening').hide();
-}
-function show_event_selector() {
-    hide_all();
-    $('#page-event-selector').show();
-    list_events();
+    return false;
 }
 function show_opening() {
     hide_all();
@@ -89,11 +87,13 @@ function show_opening() {
 }
 
 $(document).ready(function() {
-    if (selected_event && events[selected_event]) {
-        show_opening();
-    } else {
-        show_event_selector();
-    }
+  console.log('ready');
+  show_event_selector();
+  //if (selected_event && events[selected_event]) {
+  //  console.log(selected_event);
+  //  show_opening();
+  //} else {
+  //}
 });
 
 
