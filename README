@@ -13,14 +13,6 @@ Feature plans:
    immediately show that name.
 
 
-URL http://act.perl.org.il/ilpw2013/
-    login form: http://act.perl.org.il/ilpw2013/main   
-    
-    <form method="POST" action="/ilpw2013/LOGIN">
-<input type="hidden" name="destination" value="/ilpw2013/main"> 
-Login: name="credential_0"
-Password:  name="credential_1"
-Remember on this computer: type="checkbox" name="credential_2"
 
 Change password: http://act.perl.org.il/ilpw2013/changepwd
 

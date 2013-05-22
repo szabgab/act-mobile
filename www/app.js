@@ -112,8 +112,19 @@ $(document).ready(function() {
   $('#login').click(function() {
     var username = localStorage.getItem('username');
     var password = localStorage.getItem('password');
-    console.log(username);
-    console.log(password);
+    //console.log(username);
+    //console.log(password);
+    url = 'http://act.perl.org.il/ilpw2013/' + 'LOGIN';
+    // name="destination" value="/ilpw2013/main"> 
+    data = "credential_0=" + username + '&credential_1=' + password;
+    //Remember on this computer: 
+    // data += "credential_2=CHECKED"
+     jQuery.post(url, data, function(data) {
+        console.log('success');
+        console.log(data);
+     });
+
+    
     return false;
   });
 });
