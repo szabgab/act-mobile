@@ -27,7 +27,7 @@
    
     <div id="event-details"></div>
     <input type="button" id="goto-event" value="Go" />
-
+     <a href="#login-page" data-role="button">Login</a>
   </div>
   <div data-role="footer" data-position="fixed" >
     <a href="#about-page" data-role="button" data-icon="about">about</a>
@@ -44,6 +44,20 @@
     <a href="#about-page" data-role="button" data-icon="about">about</a>
   </div>
 </div>
+
+<div data-role="page" id="login-page">
+  <div data-role="header">
+     <a href="#main-page" data-role="button" data-icon="home">Home</a>
+        <h1>Login</h1>
+  </div>
+  <div data-role="content">
+    Username: <input type="text" id="username" />
+    Password: <input type="password" id="pw" />
+    <input type="button" id="save-credentials" value="Save Credentials" />
+    <input type="button" id="login" value="Login" />
+  </div>
+</div>
+
 
 <div data-role="page" id="about-page">
   <div data-role="header">

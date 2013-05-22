@@ -66,7 +66,7 @@ function show_event_selector() {
 }
 $('#goto-event').click(function() {
   selected_event = $('#event-selector').val();
-  if (selected_event and events[selected_event]) {
+  if (selected_event && events[selected_event]) {
     localStorage.setItem('selected_event', selected_event);
     // goto event-page
   } else {
@@ -74,6 +74,8 @@ $('#goto-event').click(function() {
   }
   return false;
 });
+
+
 
 function show_opening() {
     $('#page-opening').show();
@@ -92,6 +94,28 @@ $(document).ready(function() {
   //  show_opening();
   //} else {
   //}
+  
+// get the username, pw and save them locally
+// for development have a button that will use the saved credentials and will try to login
+// for real life we will probably want to hide the need to login
+// (once we have the saved username and password)
+
+  $('#save-credentials').click(function() {
+    var username = $('#username').val();
+    var password = $('#pw').val();
+    localStorage.setItem('username', username);
+    localStorage.setItem('password', password);
+  
+    //console.log('save');
+    return false;
+  });
+  $('#login').click(function() {
+    var username = localStorage.getItem('username');
+    var password = localStorage.getItem('password');
+    console.log(username);
+    console.log(password);
+    return false;
+  });
 });
 
 
